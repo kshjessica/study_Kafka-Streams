@@ -178,3 +178,16 @@ Using lambda expressions may be done.
     );
   ```
   - KGroupedTable requires a subtractor, unlike KGroupedStream.
+
+#### Windowing
+
+Streams of data by time is possible to window.
+
+- e.g. group into buckets
+
+Compare implementation without and with windowing.
+
+```
+groupedBySongId.count("song-plays-count");
+groupedBySongId.count(TimeWindows.of(TimeUnit.MINUTES.toMillis(5)), "song-play-count-windowed");
+```
