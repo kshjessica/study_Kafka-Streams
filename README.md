@@ -143,7 +143,7 @@ Building Stream processing topologies is able with mixed stateless and stateful 
 
 #### Count
 
-Based on an existing key or repartition based on a new key, grouping data may done.
+Based on an existing key or repartition based on a new key, grouping data may be done.
 
 Example below shows a count method:
 
@@ -160,3 +160,21 @@ groupedBySongId.count("song-plays-count");
 ```
 
 - Count results are backed by a state store called "song-play-count".
+
+#### Reduce or Aggregate
+
+Combining current record values with previous record values is possible.
+
+Using lambda expressions may be done.
+
+- In the example below, TopFiveSongs keeps track of the latest top 5 songs and it is automatically updated as new data comes in.
+  ```
+  final KTable<Song, Long> songPlayCounts =
+    songPlaysKGroupedTable.aggregate(TopFiveSongs::new,
+      (aggKey, value, aggregate) -> { aggregate.add(value); return aggregate; },
+      (aggKey, value, aggregate) -> { aggregate.remove(value); return aggregate; },
+      topFiveSerde,
+      "top-five-songs-by-genre"
+    );
+  ```
+  - KGroupedTable requires a subtractor, unlike KGroupedStream.
