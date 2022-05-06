@@ -1,3 +1,3 @@
-# study_apache-spark
+# study_Kafka-Streams
 
-📚 [Spark by {Examples}](https://sparkbyexamples.com/spark/)
+📚 [Kafka Streams Docs](https://kafka.apache.org/documentation/streams/)
