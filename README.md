@@ -1,6 +1,6 @@
 # study_Kafka-Streams
 
-📚 [Kafka Streams Docs](https://kafka.apache.org/documentation/streams/)  
+📚 [Kafka Streams Docs / Introduction](https://kafka.apache.org/documentation/streams/)  
 The below contains an abstract note of the **Kafka Streams API Introduction** videos.
 
 ## 📌 [Intro To Streams](https://www.youtube.com/watch?v=Z3JKCLG3VP4)
